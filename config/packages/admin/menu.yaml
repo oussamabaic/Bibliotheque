@@ -1,0 +1,20 @@
+easy_admin:
+  design:
+    menu:
+      - label: 'Gestion Bibliotheque'
+        icon: 'newspaper-o'
+        children:
+          - { entity: 'Category' , icon: 'inbox' , label: 'Categories' }
+          - { entity: 'Livre' , icon: 'newspaper-o' , label: 'Livres' }
+          - { entity: 'Livraison' , icon: 'tags' , label: 'livraisons' }
+          - { entity: 'Comment' , icon: 'comment' , label: 'Comments' }
+          - { entity: 'Commande' , icon: 'tags' , label: 'Commandes' }
+          - { entity: 'ConfirmerCommande' , icon: 'tags' , label: 'Confirmer Commande' }
+          - { entity: 'Ville' , icon: 'ville' , label: 'Villes' }
+          - { entity: 'Event' , icon: 'tags' , label: 'Events' }
+          - { entity: 'User' , icon: 'user' , label: 'Users' }
+          - { label: 'Logout', url: 'http://127.0.0.1:8000/logout' , icon: 'lock'}
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
+      - '@VichUploader/Form/fields.html.twig'
+

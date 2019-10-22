@@ -1,0 +1,56 @@
+{% extends 'baseEvent.html.twig' %}
+
+
+{% block title %}DommanderEvent
+{% endblock %}
+
+{% block body %}
+    <h1>DommanderEvent</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dommander_event.id }}</td>
+            </tr>
+            <tr>
+                <th>Billet</th>
+                <td>{{ dommander_event.billet }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ dommander_event.email }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ dommander_event.username }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <a href="{{ asset('uploads/images/UsersImage/' ~ dommander_event.image ) }}">
+                        <img alt="" src=" {{ asset('uploads/images/UsersImage/' ~  dommander_event.image ) }} " style="margin:auto;height:230px;">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ dommander_event.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ dommander_event.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ dommander_event.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('dommander_event_index') }}">back to list</a>
+
+    <a href="{{ path('dommander_event_edit', {'id': dommander_event.id}) }}">edit</a>
+
+    {{ include('dommander_event/_delete_form.html.twig') }}
+{% endblock %}

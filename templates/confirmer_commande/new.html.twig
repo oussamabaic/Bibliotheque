@@ -1,0 +1,13 @@
+{% extends 'baseCommande.html.twig' %}
+
+
+{% block title %}New ConfirmerCommande
+{% endblock %}
+
+{% block body %}
+    <h1>Create new ConfirmerCommande</h1>
+
+    {{ include('confirmer_commande/_form.html.twig') }}
+
+    <a href="{{ path('confirmer_commande_index') }}">back to list</a>
+{% endblock %}

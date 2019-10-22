@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}Welcome!
+            {% endblock %}
+        </title>
+        {% block stylesheets %}
+            <link rel="icon" href="{{ asset('img/favicon.png') }}" type="{{ asset('image/png') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/themify-icons.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendors/nice-select/css/nice-select.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/eventQuiDemmander.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/demmanderEvent.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/commandeStyle.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/newCommandeStyle.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/styleProfile.css') }}">
+            <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+            <link href="{{ asset('Directory/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('Directory/magnific-popup.css') }}" rel="stylesheet">
+            <link href="{{ asset('Directory/jquery-ui.css') }}" rel="stylesheet">
+            <link href="{{ asset('Directory/owl.carousel.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('Directory/owl.theme.default.min.css') }}" rel="stylesheet">
+
+            <link href="{{ asset('Directory/bootstrap-datepicker.css') }}" rel="stylesheet">
+
+            <link href="{{ asset('Directory/fonts/flaticon/font/flaticon.css') }}" rel="stylesheet">
+
+            <link href="{{ asset('Directory/aos.css') }}" rel="stylesheet">
+            <link href="{{ asset('Directory/rangeslider.css') }}" rel="stylesheet">
+
+            <link href="{{ asset('Directory/style.css') }}" rel="stylesheet">
+
+            <style>
+                .Cwhite {
+                    color: white;
+                }
+                .test12 {
+                    border-radius: 10px;
+                    margin-left: 20px;
+                }
+                .events_area {
+                    padding: 50px 0;
+                    background: #002347;
+                    margin: 130px 0;
+                }
+            </style>
+        {% endblock %}
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    </head>
+    <body>
+        {% block menu %}
+            <header class="header_area white-header">
+                <div class="main_menu">
+                    <div class="search_input" id="search_input_box">
+                        <div class="container">
+                            <form method="POST">
+                                <div class="input-group mb-3">
+                                    <input aria-describedby="button-addon2" aria-label="Recipient's Title" class="form-control" name="titre" placeholder="Recipient's Title" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" id="button-addon2" name="submit" type="submit" value="Search">Search</button>
+                                    </div>
+                                </form>
+                                <button class="btn" type="submit"></button>
+
+                            </div>
+
+                            <span class="ti-close" id="close_search" title="Close Search"></span>
+                        </form>
+                    </div>
+                </div>
+
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div
+                        class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand" href="{{ path("bibliotheque") }}">
+                            <img class="logo-2" src="{{ asset('img/logo2.png') }}" alt=""/>
+                        </a>
+                        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto" style="position: relative;top: 15px;left: 11%;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('bibliotheque') }}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('about-us') }}">About</a>
+                                </li>
+                                <li class="nav-item submenu active dropdown">
+
+                                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Book</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ path('courses') }}">News Courses</a>
+                                        </li>
+                                    </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('elements')}}">All Course</a>
+                                </li>
+                            </ul>
+                        </li>
+                        {% if  app.user %}
+                            <li class="nav-item submenu dropdown">
+                                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Command</a>
+                                <ul class="dropdown-menu" style="width: 230px;">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('commande_new')}}">New Commande</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('commande_index')}}">All Commandes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('confirmer_commande_index')}}">Commandes Valider</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                            <a aria-expanded="false" aria-haspopup="true" class="nav-link Cwhite dropdown-toggle" data-toggle="dropdown" href="#" role="button">Event</a>
+                            <ul class="dropdown-menu" style="width: 230px;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('event_index')}}">Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('dommander_event_new')}}">Dommander Un Event</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('dommander_event_index')}}">Events qui Dommander</a>
+                                </li>
+                            </ul>
+                        </li>
+                {% else %}
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('contact')}}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link search" href="#" id="search">
+                            <i class="ti-search"></i>
+                        </a>
+                    </li>
+                    {% if app.user %}
+                        <li class="nav-item active Cwhite">
+                            <a class="nav-link Cwhite" href="{{ path("security_logout") }}">LOGOUT</a>
+                        </li>
+                        <li class="nav-item active Cwhite">
+                            <div class="" style="height: 100%;align-content: center;">
+                                <div class="d-flex justify-content-center h-100">
+                                    <div class="image_outer_container" style="margin-top: auto;margin-bottom: auto;border-radius: 50%;position: relative;">
+                                        <div class="green_icon" style="background-color: #4cd137;position: absolute;right: 8px;bottom: 2px;height: 25px;width: 25px;border:2px solid white;border-radius: 50%;"></div>
+                                        <div class="image_inner_container" style="	border-radius: 50%;padding: 5px;background: #833ab4;background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);">
+                                            <a href="{{ path('user_index') }}">
+                                                <img style="height: 80px;width: 80px;border-radius: 50%;border: 5px solid white;" src="{{ asset('uploads/images/UsersImage/'~app.user.image) }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    {% else %}
+                        <li class="nav-item active Cwhite">
+                            <a class="nav-link Cwhite" href="{{ path("security_loginuser") }}">LOGIN</a>
+                            <b>/</b>
+                            <a class="nav-link Cwhite" href="{{ path("app_register") }}">REGISTER</a>
+                        </li>
+                    {% endif %}
+                </div>
+            </body>
+        </body>
+    </html>
+</div></body></html></nav></div></header>{% endblock %}{% block body %}{% endblock %}{% block javascripts %}<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script><script src="{{ asset('js/popper.js') }}"></script><script src="{{ asset('js/bootstrap.min.js') }}"></script><script src="{{ asset('vendors/nice-select/js/jquery.nice-select.min.js') }}"></script><script src="{{ asset('vendors/owl-carousel/owl.carousel.min.js') }}"></script><script src="{{ asset('js/owl-carousel-thumb.min.js') }}"></script><script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script><script src="{{ asset('js/mail-script.js') }}"></script><!--gmaps Js--><script src="https://unpkg.com/axios/dist/axios.min.js"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script><script src="{{ asset('js/gmaps.min.js') }}"></script><script src="{{ asset('js/theme.js') }}"></script>{% endblock %}</body></html>

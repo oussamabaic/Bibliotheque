@@ -1,0 +1,68 @@
+{% extends 'baseCommande.html.twig' %}
+
+{% block title %}Commande index
+{% endblock %}
+
+{% block body %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Commandes</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="commande/index.html.twig">All Commandes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-12 text-center">
+                <div class="outer-form">
+                    <table class="table-striped table table-bordered vertical">
+                        <thead style="color: white; font-weight: normal; background-color: black;">
+                            <tr>
+                                <th class="head">Title</th>
+                                <th class="head">Username</th>
+                                <th class="head">Duree de Livraison</th>
+                                <th class="head">Livraison By</th>
+                                <th class="head">actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody style="border:1px solid transparent; background-color:#242424; color:#A1A6AB; text-align: left;">
+                            {% for commande in commandes %}
+                                <tr>
+                                    {% if  commande.user == app.user %}
+                                        <td style="padding: 14px;">{{ commande.title }}</td>
+                                        <td>{{ commande.user }}</td>
+                                        <td>{{ commande.createdAt ? commande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                        <td>{{ commande.Livraison }}</td>
+                                        <td>
+                                            <a href="{{ path('commande_show', {'id': commande.id}) }}" class="btn btn-dark">show</a>
+                                            <a href="{{ path('commande_edit', {'id': commande.id}) }}" class="btn btn-dark">edit</a>
+
+                                            {# <a href="{{ path('confirmer_commande_new', {'id': commande.id}) }}">Confirmer</a> #}
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">no records found</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

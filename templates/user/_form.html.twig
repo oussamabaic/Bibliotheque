@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+{{ form_row(form.email) }}
+{{ form_row(form.username, {'attr': {'value': app.user }}
+)}}
+{{ form_row(form.image) }}
+{{ form_row(form.sexe) }}
+{{ form_row(form.adresse) }}
+{{ form_row(form.telephone) }}
+{{ form_row(form.password) }}
+
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

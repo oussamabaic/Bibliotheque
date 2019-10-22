@@ -1,0 +1,2 @@
+easy_admin:
+  site_name: '<div> GESTION Bibliotheque <i style="color:blue">admin</i><br><br><a style="color:black; position: fixed;"  href="http://127.0.0.1:8000/logout">Logout</a><br></div>'

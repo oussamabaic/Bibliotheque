@@ -1,0 +1,52 @@
+{% extends "base2.html.twig" %}
+
+
+{% block body %}
+
+<section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Categotry Security</h2>
+                <div class="page_link">
+                  <a href="index.html">Home</a>
+                  <a href="elements.html">All Course</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+<br><br>
+     <div class="col-lg-12">
+        <div class="row">
+{% for Livre in Livres %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+           <center>
+						<div class="container">
+							<a href="{{ asset('uploads/images/livres/' ~ Livre.image ) }}"><img style="width:200px;height:230px;" src=" {{ asset('uploads/images/livres/' ~ Livre.image ) }} " alt=""></a><br>
+						</div>
+					</center>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{{ asset('uploads/images/livres/' ~ Livre.image ) }}">{{ Livre.titre }} </a>
+                </h4>
+								<h5>Auteur : {{ Livre.narrateur }}</h5>
+                <p class="card-text">{{ Livre.description | raw  }}</p>
+
+              </div>
+            </div>
+          </div>
+{% endfor %}   
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include "footer.html.twig" %}
+{% endblock %}

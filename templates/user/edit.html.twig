@@ -1,0 +1,125 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+
+{% block body %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Profile</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="user/index.html.twig">Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main main-raised" style="margin-top: -54px;">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        {{ form_start(form) }}
+                        <div class="profile">
+                            <div
+                                class="avatar">
+                                {# <img alt="Circle Image" class="img-raised rounded-circle img-fluid" src="{{ asset('uploads/images/UsersImage/'~app.user.image) }}"> #}
+                                {{ form_row(form.image) }}
+
+                            </div>
+                            <div
+                                class="card-body p-3">
+
+                                <!--Body-->
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-user text-info"></i>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form.username, {'attr': {'value': app.user }}
+                                        )}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-envelope text-info"></i>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form.email) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-venus-mars text-info"></i>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form.sexe) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-address-card text-info"></i>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form.adresse) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-phone text-info"></i>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form.telephone) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-phone text-info"></i>
+                                            </div>
+                                        </div>
+                                        {{ form_row(form.password) }}
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-info btn-block rounded-0 py-2">{{ button_label|default('Update') }}</button>
+                                    <a class="btn btn-success btn-block rounded-0 py-2" href="{{ path('user_index') }}">back to Profile</a>
+
+                                    {{ include('user/_delete_form.html.twig') }}
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+{% endblock %}

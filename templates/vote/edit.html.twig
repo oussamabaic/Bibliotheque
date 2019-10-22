@@ -1,0 +1,49 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+
+{% block body %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Votre Commentaire</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="user/index.html.twig">Commentaire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main main-raised" style="margin-top: -54px;">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="card-body p-3">
+                                {{ include('vote/_form.html.twig', {'button_label': 'Update'}) }}
+
+                                {{ include('vote/_delete_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+
+
+{% endblock %}

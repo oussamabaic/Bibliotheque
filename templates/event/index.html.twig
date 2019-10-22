@@ -1,0 +1,88 @@
+{% extends 'baseEvent.html.twig' %}
+
+
+{% block title %}Event index
+{% endblock %}
+
+{% block body %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Events</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="event/index.html.twig">Event</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--================ Start Events Area =================-->
+    <div class="events_area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="main_title">
+                        <h2 class="mb-3 text-white">Upcoming Events</h2>
+                        <p>
+                            Replenish man have thing gathering lights yielding shall you
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for event in events %}
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single_event position-relative">
+                            <div class="event_thumb">
+                                <img src="{{ asset('img/event/e1.jpg') }}" alt=""/>
+                            </div>
+                            <div class="event_details">
+                                <div class="d-flex mb-4">
+                                    <div class="date">
+                                        <span>{{ event.price }}$</span>
+                                    </div>
+
+                                    <div class="time-location">
+                                        <p>
+                                            <span class="ti-time mr-2"></span>
+                                            {{ event.FindateAt ? event.FindateAt|date('Y-m-d H:i:s') : '' }}
+                                        </p>
+                                        <p>
+                                            <span class="ti-location-pin mr-2"></span>
+                                            {{ event.title }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <p>
+                                    {{ event.description }}
+                                </p>
+                                <a class="primary-btn rounded-0 mt-3" href="#">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="col-lg-12">
+                    <div class="text-center pt-lg-5 pt-3">
+                        <a href="{{ path('event_index')}}" class="event-link">
+                            Events
+                            <img alt="" src="{{ asset('img/next.png') }}"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================ End Events Area =================-->
+    {% include "footer.html.twig" %}
+{% endblock %}

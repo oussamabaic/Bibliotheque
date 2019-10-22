@@ -1,0 +1,36 @@
+{% extends 'baseCommande.html.twig' %}
+"
+
+{% block title %}ConfirmerCommande
+{% endblock %}
+
+{% block body %}
+    <h1>ConfirmerCommande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ confirmer_commande.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ confirmer_commande.title }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ confirmer_commande.createdAt ? confirmer_commande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Valider par</th>
+                <td>{{ confirmer_commande.user }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('confirmer_commande_index') }}">back to list</a>
+
+    <a href="{{ path('confirmer_commande_edit', {'id': confirmer_commande.id}) }}">edit</a>
+
+    {{ include('confirmer_commande/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,24 @@
+easy_admin:
+  entities:
+    Livre:
+      class: App\Entity\Livre
+      form: 
+        fields:
+          - { property: 'titre' }
+          - { property: 'imageFile', type: 'file', base_path: '%app.path.product_images%' }
+            # ...
+            show:
+                fields:
+                    - { property: 'image', type: 'file', base_path: '%app.path.product_images%' }
+
+          - { property: 'description' }
+          - { property: 'lien_pdf',  type: 'text' }
+          - { property: 'nbr_page' , type: 'number'}
+          - { property: 'narrateur' }
+          - { property: 'createdAt' }
+          - { property: 'categorys' }
+      list:
+        actions:
+          - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+    

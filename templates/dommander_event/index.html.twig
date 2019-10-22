@@ -1,0 +1,68 @@
+{% extends 'baseEvent.html.twig' %}
+
+
+{% block title %}New Commande
+{% endblock %}
+
+{% block body %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Event Qui Demmander</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="commande/new.html.twig">Event Qui Demmander</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <h1 align="center">Event Qui Demmander</h1>
+        {% for dommander_event in dommander_events %}
+            {% if  dommander_event.email == app.user.email %}
+                <br>
+                <figure class="pizza">
+                    <div class="pizza__herro">
+                        <a href="{{ asset('uploads/images/UsersImage/' ~ dommander_event.image ) }}">
+                            <img alt="pizza" class="pizza__img" src="{{ asset('uploads/images/UsersImage/' ~ dommander_event.image ) }}">
+                        </a>
+                    </div>
+                    <div class="pizza__content">
+                        <div class="pizza__title">
+                            <h1 class="pizza__heading">{{ dommander_event.Events }}
+                                👌</h1>
+                            <div class="pizza__tag pizza__tag--1">{{ dommander_event.username }}</div>
+                            <div class="pizza__tag pizza__tag--2">{{ dommander_event.email }}</div>
+                        </div>
+                        <p class="pizza__description">{{ dommander_event.adresse }}</p>
+                        <div class="pizza__details">
+                            <p class="pizza__detail">
+                                <span class="emoji">⭐</span>
+                                {{ dommander_event.billet }}
+                                Billet</p>
+                            <p class="pizza__detail">
+                                <span class="emoji">⏱</span>30 min</p>
+                            <p class="pizza__detail">
+                                <span class="emoji">⭐</span>
+                                {{ dommander_event.telephone }}</p>
+                        </div>
+                    </div>
+                    <div class="pizza__price">${{ dommander_event.billet * dommander_event.Events.price  }}</div>
+                </figure>
+                <br>
+            {% endif %}
+
+        {% else %}
+            <h1 align="center">no records found</h1>
+        {% endfor %}
+    </div>
+
+{% endblock %}

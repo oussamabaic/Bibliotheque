@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register !
+{% endblock %}
+{% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row">
+            <div
+                class="col-sm-8 col-sm-offset-2">
+
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+
+                    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+                        {{ form_start(registrationForm) }}
+
+                        <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
+
+                        <div class="wizard-header text-center">
+                            <h3 class="wizard-title">Register</h3>
+                            <p class="category">This information will let us know more about you.</p>
+                        </div>
+
+                        <div class="wizard-navigation">
+                            <div class="progress-with-circle">
+                                <div aria-valuemax="3" aria-valuemin="1" aria-valuenow="1" class="progress-bar" role="progressbar" style="width: 21%;"></div>
+                            </div>
+                            <ul>
+                                <li><a data-toggle="tab" href="#about"><div class="icon-circle"><i class="ti-user"></i></div>About</a></li>
+                                <li><a data-toggle="tab" href="#account"><div class="icon-circle"><i class="ti-settings"></i></div>Security</a></li>
+                                <li><a data-toggle="tab" href="#address"><div class="icon-circle"><i class="ti-map"></i></div>Address</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="about">
+                                <div class="row">
+                                    <h5 class="info-text">
+                                        Please tell us more about yourself.</h5>
+                                    <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="picture-container">
+                                            <div class="picture">
+                                                {{ form_row(registrationForm.image) }}
+                                            </div>
+                                            <h6>Choose Picture</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>
+                                                <small>(required)</small>
+                                            </label>
+                                            {{ form_row(registrationForm.email,{'attr' : {' placeholder': 'Email d\'utilisateur ...'}}) }}
+                                            </div>
+                                            <div class="form-group">
+                                                <label>
+                                                    <small>(required)</small>
+                                                </label>
+                                                {{ form_row(registrationForm.username,{'attr' : {' placeholder': 'Nom d\'utilisateur ...'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>
+                                                <small>(required)</small>
+                                            </label>
+                                            {{ form_row(registrationForm.sexe,{'attr' : {' placeholder': 'Sexe d\'utilisateur ...'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="account">
+                                    <h5 class="info-text">
+                                        Complete les Info
+                                    </h5>
+                                    <div class="row">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <div class="col-sm-12">
+                                        <div class="choice" data-toggle="wizard-checkbox">
+                                                {{ form_row(registrationForm.password,{'attr' : {' placeholder': 'Password d\'utilisateur ...'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="choice" data-toggle="wizard-checkbox">
+                                            {{ form_row(registrationForm.confirm_password,{'attr' : {' placeholder': 'Repetez Votre Mot de Passe ...'}})}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="address">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5 class="info-text">
+                                        Are you living in a nice area?
+                                    </h5>
+                                </div>
+                                <div class="col-sm-7 col-sm-offset-1">
+                                    <div class="form-group">
+                                        {{ form_row(registrationForm.adresse,{'attr' : {' placeholder': 'Adresse d\'utilisateur ...'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            {{ form_row(registrationForm.telephone,{'attr' : {' placeholder': 'Telephone d\'utilisateur ...'}}) }}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-footer">
+                        <div class="pull-right">
+                            <input class='btn btn-next btn-fill btn-warning btn-wd' name='next' type='button' value='Next'/>
+                            <button class='btn btn-finish btn-fill btn-warning btn-wd' name='finish'>Register</button>
+                            {{ form_end(registrationForm) }}
+                        </div>
+
+                        <div class="pull-left">
+                            <input class='btn btn-previous btn-default btn-wd' name='previous' type='button' value='Previous'/>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- wizard container -->
+        </div>
+    </div>
+    <!-- end row -->
+</div>
+<!--  big container -->
+<div class="fixed-plugin">
+    <div class="dropdown open">
+        <a data-toggle="dropdown" href="#">
+            <i class="fa fa-cog fa-2x"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="header-title">Colors</li>
+            <li class="adjustments-line">
+                <a class="switch-trigger" href="javascript:void(0)">
+                    <div class="text-center">
+                        <span class="badge filter badge-blue" data-color="blue"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-orange active" data-color="orange"></span>
+                        <span class="badge filter badge-red" data-color="red"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+</script></div>{% endblock %}

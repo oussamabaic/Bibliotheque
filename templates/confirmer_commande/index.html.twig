@@ -1,0 +1,71 @@
+{% extends 'baseCommande.html.twig' %}
+
+
+{% block title %}Event index
+{% endblock %}
+
+{% block body %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Valider</h2>
+                            <div class="page_link">
+                                <a href="{{ path('bibliotheque') }}">Home</a>
+                                <a href="confirmer_commande/index.html.twig">Valider</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <div class="container">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-12 text-center">
+                <div class="outer-form">
+                    <table class="table-striped table table-bordered vertical">
+                        <thead style="color: white; font-weight: normal; background-color: black;">
+                            <tr>
+                                <th class="head">Title</th>
+                                <th class="head">CreatedAt</th>
+                                <th class="head">Valider Par</th>
+                            </tr>
+                        </thead>
+
+                        <tbody style="border:1px solid transparent; background-color:#242424; color:#A1A6AB; text-align: left;">
+                            {% for confirmer_commande in confirmer_commandes %}
+                                <tr>
+                                    {% if  confirmer_commande.user == app.user %}
+                                        <td style="padding: 14px;">{{ confirmer_commande.id }}</td>
+                                        <td>{{ confirmer_commande.title }}</td>
+                                        <td>{{ confirmer_commande.createdAt ? confirmer_commande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                        <td>{{ confirmer_commande.user }}</td>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <td>
+                                                <a href="{{ path('confirmer_commande_show', {'id': confirmer_commande.id}) }}">show</a>
+                                                <a href="{{ path('confirmer_commande_edit', {'id': confirmer_commande.id}) }}">edit</a>
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                {% endif %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">no records found</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-primary" href="{{ path('confirmer_commande_new') }}">Create new</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

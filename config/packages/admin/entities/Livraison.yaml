@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    Livraison:
+      class: App\Entity\Livraison
+      form: 
+        fields:
+          - { property: 'title' }
+      list:
+        actions:
+          - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+
+
+    

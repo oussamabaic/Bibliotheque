@@ -1,0 +1,97 @@
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+    vertical-align: middle;
+    margin-top: 8px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 35, 71, 0.8);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 14px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #800080;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.table th, .table td {
+    border-top: none !important;
+    border-left: none !important;
+    text-align: center;
+}
+
+.table-striped>tbody>tr:nth-of-type(2n+1) {
+    background-color: rgba(0, 35, 111, 0.8);
+}
+
+.table-call {
+    min-height: .01%;
+    overflow-x: auto;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.table.table-bordered.vertical, .table.table-bordered.vertical td, .table.table-bordered.vertical th {
+    border-top: 0px solid white !important;
+    border-bottom: 0px solid white !important;
+    border-right: 0px solid white !important;
+    border-left: 0px solid white !important;
+}
+
+.head {
+    font-weight: normal;
+    font-size: 16px;
+    background-color: #fdc632;
+}

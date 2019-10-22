@@ -1,0 +1,81 @@
+{% extends 'baseEvent.html.twig' %}
+
+
+{% block title %}New Commande
+{% endblock %}
+
+{% block body %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Demmander Event</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="commande/new.html.twig">Demmander Event</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <h1 style="text-align: center;">Demmander Event</h1>
+
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img alt="" src="https://image.ibb.co/n7oTvU/logo_white.png"/>
+                <h3>Commander</h3>
+                <p>You are 30 seconds away from earning your own money!</p>
+            </div>
+            <div class="col-md-9 register-right">
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#home" id="home-tab" role="tab">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#profile" id="profile-tab" role="tab">Hirer</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    {{ form_start(form) }}
+                    <div aria-labelledby="profile-tab" class="tab-pane fade show" id="profile" role="tabpanel">
+                        <h3 class="register-heading">Apply as a Hirer</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form_row(form.Events) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.billet) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.email , {'attr': {'value': app.user.email }}
+                                    )}}
+
+                                    {{ form_row(form.username, {'attr': {'value': app.user }}) }}
+                                    {{ form_row(form.image, {'attr': {'value': app.user.image }}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(form.sexe, {'attr': {'value': app.user.sexe }}) }}
+                                    {{ form_row(form.adresse, {'attr': {'value': app.user.adresse }}) }}
+                                    {{ form_row(form.telephone, {'attr': {'value': app.user.telephone }}) }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btnRegister">{{ button_label|default('Demmander') }}</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

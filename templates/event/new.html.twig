@@ -1,0 +1,32 @@
+{% extends 'baseEvent.html.twig' %}
+
+
+{% block title %}New Event
+{% endblock %}
+
+{% block body %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Add Events</h2>
+                            <div class="page_link">
+                                <a href="index.html">Home</a>
+                                <a href="event/new.html.twig">Add Event</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h1>Create new Event</h1>
+
+    {{ include('event/_form.html.twig') }}
+
+    <a href="{{ path('event_index') }}">back to list</a>
+{% endblock %}

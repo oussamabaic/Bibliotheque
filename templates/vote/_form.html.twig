@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+{# {{ form_widget(form) }} #}
+{{ form_row(form.Author , {'attr': {'value': app.user }}) }}
+{{ form_row(form.image ,{'attr' : {'value':app.user.image}}) }}
+{{ form_row(form.Content) }}
+{# {{ form_row(form.createdAt) }} #}
+<button class="btn btn-success" style="border-radius: 8px;box-shadow: 2px 5px 26px grey;background-color:#072849;color:white;">{{ button_label|default('Commenter') }}</button>
+
+
+{{ form_end(form) }}

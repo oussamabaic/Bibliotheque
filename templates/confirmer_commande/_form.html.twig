@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+<br>
+    {{ form_row(form.Commandes) }}
+    
+    {{ form_row(form.title) }}
+    {{ form_row(form.user, {'attr': {'value': app.user }} )}}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

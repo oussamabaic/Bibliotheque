@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    Category:
+      class: App\Entity\Category
+      form: 
+        fields:
+          - { property: 'title' }
+          - { property: 'description' }
+          #- { property: 'name' , type: 'text ...'} imken lik t3tiha type
+      list:
+        actions:
+          - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+

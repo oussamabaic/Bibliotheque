@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}Welcome!
+            {% endblock %}
+        </title>
+        {% block stylesheets %}
+            <link rel="icon" href="{{ asset('img/favicon.png') }}" type="{{ asset('image/png') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/themify-icons.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('vendors/nice-select/css/nice-select.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+            <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+
+            <style>
+                .Cwhite {
+                    color: white;
+                }
+            </style>
+        {% endblock %}
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    </head>
+    <body>
+        {% block menu %}
+            <header class="header_area white-header">
+                <div class="main_menu"></div>
+
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div
+                        class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand" href="{{ path("bibliotheque") }}">
+                            <img class="logo-2" src="{{ asset('img/logo2.png') }}" alt=""/>
+                        </a>
+                        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto" style="position: relative;top: 15px;left: 11%;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('bibliotheque') }}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('about-us') }}">About</a>
+                                </li>
+                                <li class="nav-item active submenu dropdown">
+                                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Book</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ path('courses') }}">News Courses</a>
+                                        </li>
+                                    </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('elements')}}">All Course</a>
+                                </li>
+                            </ul>
+                        </li>
+                        {% if  app.user %}
+                            <li class="nav-item submenu dropdown">
+                                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Command</a>
+                                <ul class="dropdown-menu" style="width: 230px;">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('commande_new')}}">New Commande</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('commande_index')}}">All Commandes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('confirmer_commande_index')}}">Commandes Valider</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                            <a aria-expanded="false" aria-haspopup="true" class="nav-link Cwhite dropdown-toggle" data-toggle="dropdown" href="#" role="button">Event</a>
+                            <ul class="dropdown-menu" style="width: 230px;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('event_index')}}">Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('dommander_event_new')}}">Dommander Un Event</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('dommander_event_index')}}">Events qui Dommander</a>
+                                </li>
+                            </ul>
+                        </li>
+                {% else %}
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('contact')}}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link search" href="#" id="search">
+                            <i class="ti-search"></i>
+                        </a>
+                    </li>
+                    {% if app.user %}
+                        <li class="nav-item active Cwhite">
+                            <a class="nav-link Cwhite" href="{{ path("security_logout") }}">LOGOUT</a>
+                        </li>
+                        <li class="nav-item active Cwhite">
+                            <div class="" style="height: 100%;align-content: center;">
+                                <div class="d-flex justify-content-center h-100">
+                                    <div class="image_outer_container" style="margin-top: auto;margin-bottom: auto;border-radius: 50%;position: relative;">
+                                        <div class="green_icon" style="background-color: #4cd137;position: absolute;right: 8px;bottom: 2px;height: 25px;width: 25px;border:2px solid white;border-radius: 50%;"></div>
+                                        <div class="image_inner_container" style="	border-radius: 50%;padding: 5px;background: #833ab4;background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);">
+                                            <a href="{{ path('user_index') }}">
+                                                <img style="height: 80px;width: 80px;border-radius: 50%;border: 5px solid white;" src="{{ asset('uploads/images/UsersImage/'~app.user.image) }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    {% else %}
+                        <li class="nav-item active Cwhite">
+                            <a class="nav-link Cwhite" href="{{ path("security_loginuser") }}">LOGIN</a>
+                            <b>/</b>
+                            <a class="nav-link Cwhite" href="{{ path("app_register") }}">REGISTER</a>
+                        </li>
+                    {% endif %}
+                </div>
+            </div>
+        </body>
+    </html>
+</nav></div></header>{% endblock %}{% block body %}<section class="banner_area"><div class="banner_inner d-flex align-items-center">
+
+<div class="overlay"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="banner_content text-center">
+                <h2>Course Details</h2>
+                <div class="page_link">
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="course-details.html">Courses Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div></section><!--================End Home Banner Area =================--><!--================ Start Course Details Area =================--><section class="course_details_area section_gap"><div class="container">
+<div class="row">
+    <div class="col-lg-8 course_details_left">
+        <div class="main_image">
+            <h1>{{ Livre.titre }}</h1>
+            <br>
+            <a href="{{ asset('uploads/images/livres/' ~ Livre.image ) }}"><img alt="" src=" {{ asset('uploads/images/livres/' ~ Livre.image ) }} " style="width:600px;height:430px;"></a><br>
+            <small>{{ Livre.createdAt | date('d/m/y') }}
+                a
+                {{ Livre.createdAt | date('H:i') }}
+            </small><br>
+            <br>
+            <a href="{{ path('post_like' , {'id' : Livre.id}) }}" class="btn btn-link js-like" style="text-decoration: none;">
+
+                {% if app.user and Livre.isLikedByUser(app.user) %}
+                    <i class="fas fa-heart" style="color:red;font-size:25px;"></i>
+                    <span class="js-label" style="color:black">
+                        <b style="color:black;font-size:25px;">Follow</b>
+                    </span>
+
+                {% else %}
+                    <i class="far fa-heart"></i>
+                {% endif %}
+                <span class="js-likes" style="color:black;font-size:25px;">{{ Livre.likes | length }}</span>
+            </a>
+        </div>
+        <br>
+        <div class="content_wrapper">
+            <h5 class="title">Details
+            </h5>
+            <div class="content">
+                {{ Livre.description | raw}}<br>
+                <br>
+                <div class="content">
+                    Ecrit le
+                    {{ Livre.createdAt | date('d/m/y') }}
+                    a
+                    {{ Livre.createdAt | date('H:i') }}
+                </div>
+                <br>
+                <center>
+                    <a href="{{ Livre.lienPDF }}">
+                        <img alt="" src=" {{ asset('/img/Downloadlivre.png') }} " style="height:80px"></a>
+                </center>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-lg-4 right-contents">
+        <h4 class="title">Reviews</h4>
+        <div class="content">
+            <div class="review-top row pt-40">
+                <div class="col-lg-12">
+                    <h6 class="mb-15">Provide Your Rating</h6>
+                    <div class="d-flex flex-row reviews justify-content-between">
+                        <span>Category :
+                        </span>
+                        <div class="star" style="width: 50%;">
+                            <h5>{{ Livre.categorys.title }}</h5><br>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row reviews justify-content-between">
+                        <span>Le Narrateur :</span>
+                        <div class="star" style="width: 50%;">
+                            <h5 class="lien">{{ Livre.narrateur }}</h5><br>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row reviews justify-content-between">
+                        <span style="width: 40%;">Nombre de page :</span>
+                        <div class="star" style="width: 50%;">
+                            <h5 class="lien">{{Livre.nbrpage}}</h5>
+                        </br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if not app.user %}
+        {% else %}
+            <div class="feedeback">
+                <h6>Your Feedback</h6>
+                {{ form_start(commentForm) }}
+
+                {{ form_row(commentForm.author , {'attr': {'value': app.user }}
+                )}}
+                {{ form_row(commentForm.content, { 'attr':{'placeholder': "Commentaire..."} })}}
+
+                <div class="mt-10 text-right">
+                    <button class="primary-btn2 text-right rounded-0 text-yellow-50" type="Submit">Submit</button>
+                </div>
+                {{ form_end(commentForm) }}
+
+                <br><br>
+            </div>
+        {% endif %}
+        <div class="comment-list">
+            <h4>{{ Livre.comments | length }}
+                Commentaires</h4>
+            <br>
+            <div class="single-comment single-reviews justify-content-between d-flex">
+                <div class="user justify-content-between d-flex">
+                    <div class="thumb"></div>
+                    <div class="desc">
+                        {% for comment in Livre.comments %}
+                            <h5>
+                                <a href="#">
+                                    {{ comment.author }}<small>
+                                        {{ comment.createdAt | date('d/m.Y a H:i')}}</small>
+                                </a>
+                            </h5>
+                            <p>
+                                {{ comment.content | raw }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div></div></div></section>{% endblock %}{% block javascripts %}<script src="https://unpkg.com/axios/dist/axios.min.js"></script><script>function onClickBtnLike(event) {
+    event.preventDefault();
+
+
+    const url = this.href;
+
+    const spanCount = this.querySelector('span.js-likes');
+
+    const icone = this.querySelector('i');
+
+    axios.get(url).then(function (response) {
+        spanCount.textContent = response.data.likes;
+
+        if (icone.classList.contains('fas')) {
+            icone.classList.replace('fas', 'far');
+        } else {
+            icone.classList.replace('far', 'fas');
+        }
+    }).catch(function (error) {
+        if (error.response.status === 403) {
+            window.alert("Vous ne pouvez pas liker Cette Livre Vous N'etes pas Conneter")
+        } else {
+            window.alert('Reessayez');
+        }
+    });
+}
+
+document.querySelectorAll('a.js-like').forEach(function (link) {
+    link.addEventListener('click', onClickBtnLike)
+})</script>{% endblock %}

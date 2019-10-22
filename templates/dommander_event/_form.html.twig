@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {{ form_row(form.Events) }}
+    {{ form_row(form.billet) }}
+    {{ form_row(form.email , {'attr': {'value': app.user.email }} )}}
+
+    {{ form_row(form.username, {'attr': {'value': app.user }}) }}
+    {{ form_row(form.image, {'attr': {'value': app.user.image }}) }}
+    {# {% if app.user.image is defined  %}
+        <img src="{{ asset( 'uploads/images/UsersImage/'~app.user.image) }}" alt="profile-pic" class="profile-picture" />
+    {% else %}
+        <img src="{{ asset('bundles/tfeuser/images/default_profile_pic.png') }}" alt="profile-pic" class="profile-picture"/>
+    {% endif %} #}
+    {{ form_row(form.sexe, {'attr': {'value': app.user.sexe }}) }}
+    {{ form_row(form.adresse, {'attr': {'value': app.user.adresse }}) }}
+    {{ form_row(form.telephone, {'attr': {'value': app.user.telephone }}) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

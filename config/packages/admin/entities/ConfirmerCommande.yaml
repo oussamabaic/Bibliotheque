@@ -1,0 +1,12 @@
+easy_admin:
+  entities:
+    ConfirmerCommande:
+      class: App\Entity\ConfirmerCommande
+      list:
+        actions:
+          - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+
+
+
+    

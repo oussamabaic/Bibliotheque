@@ -1,0 +1,15 @@
+easy_admin:
+  entities:
+    Commande:
+      class: App\Entity\Commande
+      form: 
+        fields:
+          - { property: 'title' }
+          - { property: 'user'}
+          - { property: 'created_At' , type: 'datetime' }
+          - { property: 'Livraison' }
+      list:
+        actions:
+          - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+
